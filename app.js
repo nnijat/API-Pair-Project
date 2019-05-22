@@ -86,7 +86,7 @@ describe('getBeerNameByID', () => {
             })
         }
         return getBeerNameByID(fakeFetch, 'zfP2fK')
-            .then(result => assert([result.name === '12th Of Never']))
+            .then(result => assert([result.data.name === '12th Of Never']))
     })
 
     // Return wrong status
