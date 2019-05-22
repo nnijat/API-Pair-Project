@@ -17,7 +17,7 @@ let rl = readline.createInterface({
 });
 
 rl.question("Enter your beer ID: ", function (beerID) {
-    getBeerNameByID(beerID);
+    getBeerNameByID(fetch, beerID);
     rl.close();
 });
 
@@ -33,12 +33,12 @@ function getBeerNameByID(beerID) {
             if (res.status === "success") {
                 console.log("Beer name: ", res.data.name);
             } else {
-                console.log("Please check your client errors!!!")
+                console.log("Cheers!!!")
             }
             return res;
         })
         .catch(error => console.log("oops, looks like we got an error: ", error))
-        .finally(() => console.log("Did you get your beer?"))
+        .finally(() => console.log("Cheers!!!!"))
 
 }
 
@@ -73,7 +73,7 @@ describe('getBeerNameByID', () => {
     });
 
     // Return wrong name
-    it('4. parses the response of fetch correctly', () => {
+    it('4. parses the response of fetch correct name', () => {
         function fakeFetch() {
             return Promise.resolve({
                 json() {
@@ -90,7 +90,7 @@ describe('getBeerNameByID', () => {
     })
 
     // Return wrong status
-    it('4. parses the response of fetch correctly', () => {
+    it('4. parses the response of fetch correct status', () => {
         function fakeFetch() {
             return Promise.resolve({
                 json() {
@@ -102,5 +102,4 @@ describe('getBeerNameByID', () => {
             .then(result => assert([result.status === 'success']))
     })
 });
-
 
