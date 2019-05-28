@@ -25,7 +25,6 @@ rl.question("Enter your beer ID: ", function (beerID) {
 function getBeerNameByID(beerID) {
     const URL = BASE_LINK + ENDPOINT + KEY + PARAMETER + beerID;
     return fetch(URL)
-        //.then(res => res.json())
         .then(res => {
             return res.json()
         })
